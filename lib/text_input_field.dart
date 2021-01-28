@@ -10,9 +10,12 @@ class TextFieldInput extends StatelessWidget {
   final Function onTap;
   final TextEditingController controller;
   final bool isWarningVisible;
-  final IconData icon;
-  final Function iconPressed;
+  final IconData suffixIcon;
+  final Function suffixIconPressed;
+  final IconData prefixIcon;
+  final Function prefixIconPressed;
   final Color textColor;
+  final Color borderColor;
   final String fontFamily;
 
   bool isPassword;
@@ -23,11 +26,14 @@ class TextFieldInput extends StatelessWidget {
       this.onChanged,
       this.onTap,
       this.isWarningVisible = false,
-      this.textColor = Colors.white,
+      this.textColor = Colors.black,
+      this.borderColor = Colors.black,
       this.fontFamily,
       @required this.controller,
-      this.icon,
-      this.iconPressed});
+      this.prefixIcon,
+      this.prefixIconPressed,
+      this.suffixIcon,
+      this.suffixIconPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -47,13 +53,13 @@ class TextFieldInput extends StatelessWidget {
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(25.0),
             borderSide: BorderSide(
-              color: textColor,
+              color: borderColor,
             ),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(25.0),
             borderSide: BorderSide(
-              color: textColor,
+              color: borderColor,
             ),
           ),
           labelText: labelText,
@@ -65,9 +71,13 @@ class TextFieldInput extends StatelessWidget {
             borderRadius: new BorderRadius.circular(25.0),
             borderSide: new BorderSide(),
           ),
+          prefixIcon: IconButton(
+            icon: Icon(prefixIcon),
+            onPressed: () => prefixIconPressed(),
+          ),
           suffixIcon: IconButton(
-            icon: Icon(icon),
-            onPressed: () => iconPressed(),
+            icon: Icon(suffixIcon),
+            onPressed: () => suffixIconPressed(),
           )),
       onChanged: (value) {
         onChanged(value);
