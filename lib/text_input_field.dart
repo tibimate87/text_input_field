@@ -18,6 +18,8 @@ class TextFieldInput extends StatelessWidget {
   final Color borderColor;
   final String fontFamily;
   final EdgeInsetsGeometry padding;
+  final int maxLength;
+
   bool isPassword;
   TextFieldInput(
       {@required this.labelText,
@@ -34,14 +36,15 @@ class TextFieldInput extends StatelessWidget {
       this.prefixIconPressed,
       this.suffixIcon,
       this.suffixIconPressed,
-      this.padding});
+      this.padding,
+      this.maxLength});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: padding,
       child: TextFormField(
-        maxLength: 5,
+        maxLength: maxLength,
         obscureText: isPassword,
         controller: controller,
         maxLines: maxLines,
