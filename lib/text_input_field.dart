@@ -17,7 +17,7 @@ class TextFieldInput extends StatelessWidget {
   final Color textColor;
   final Color borderColor;
   final String fontFamily;
-
+  final EdgeInsetsGeometry padding;
   bool isPassword;
   TextFieldInput(
       {@required this.labelText,
@@ -33,58 +33,62 @@ class TextFieldInput extends StatelessWidget {
       this.prefixIcon,
       this.prefixIconPressed,
       this.suffixIcon,
-      this.suffixIconPressed});
+      this.suffixIconPressed,
+      this.padding});
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      maxLength: 5,
-      obscureText: isPassword,
-      controller: controller,
-      maxLines: maxLines,
-      cursorColor: textColor,
-      textAlign: TextAlign.center,
-      style: TextStyle(
-        color: textColor,
-        fontSize: 15,
-        fontFamily: fontFamily,
+    return Padding(
+      padding: padding,
+      child: TextFormField(
+        maxLength: 5,
+        obscureText: isPassword,
+        controller: controller,
+        maxLines: maxLines,
+        cursorColor: textColor,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          color: textColor,
+          fontSize: 15,
+          fontFamily: fontFamily,
+        ),
+        decoration: InputDecoration(
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(25.0),
+              borderSide: BorderSide(
+                color: borderColor,
+              ),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(25.0),
+              borderSide: BorderSide(
+                color: borderColor,
+              ),
+            ),
+            labelText: labelText,
+            labelStyle: TextStyle(
+              color: textColor,
+              fontFamily: fontFamily,
+            ),
+            border: new OutlineInputBorder(
+              borderRadius: new BorderRadius.circular(25.0),
+              borderSide: new BorderSide(),
+            ),
+            prefixIcon: IconButton(
+              icon: Icon(prefixIcon),
+              onPressed: () => prefixIconPressed(),
+            ),
+            suffixIcon: IconButton(
+              icon: Icon(suffixIcon),
+              onPressed: () => suffixIconPressed(),
+            )),
+        onChanged: (value) {
+          onChanged(value);
+        },
+        onTap: () {
+          onTap();
+        },
       ),
-      decoration: InputDecoration(
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(25.0),
-            borderSide: BorderSide(
-              color: borderColor,
-            ),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(25.0),
-            borderSide: BorderSide(
-              color: borderColor,
-            ),
-          ),
-          labelText: labelText,
-          labelStyle: TextStyle(
-            color: textColor,
-            fontFamily: fontFamily,
-          ),
-          border: new OutlineInputBorder(
-            borderRadius: new BorderRadius.circular(25.0),
-            borderSide: new BorderSide(),
-          ),
-          prefixIcon: IconButton(
-            icon: Icon(prefixIcon),
-            onPressed: () => prefixIconPressed(),
-          ),
-          suffixIcon: IconButton(
-            icon: Icon(suffixIcon),
-            onPressed: () => suffixIconPressed(),
-          )),
-      onChanged: (value) {
-        onChanged(value);
-      },
-      onTap: () {
-        onTap();
-      },
     );
   }
 }
