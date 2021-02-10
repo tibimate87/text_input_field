@@ -10,9 +10,9 @@ class TextFieldInput extends StatelessWidget {
   final Function onTap;
   final TextEditingController controller;
   final bool isWarningVisible;
-  final Widget suffixIcon;
+  final IconData suffixIcon;
   final Function suffixIconPressed;
-  final Widget prefixIcon;
+  final IconData prefixIcon;
   final Function prefixIconPressed;
   final Color textColor;
   final Color borderColor;
@@ -77,13 +77,13 @@ class TextFieldInput extends StatelessWidget {
               borderRadius: new BorderRadius.circular(25.0),
               borderSide: new BorderSide(),
             ),
-            prefixIcon: GestureDetector(
-              child: prefixIcon,
-              onTap: () => prefixIconPressed(),
+            prefixIcon: IconButton(
+              icon: Icon(prefixIcon),
+              onPressed: () => prefixIconPressed(),
             ),
-            suffixIcon: GestureDetector(
-              child: suffixIcon,
-              onTap: () => suffixIconPressed(),
+            suffixIcon: IconButton(
+              icon: Icon(suffixIcon),
+              onPressed: () => suffixIconPressed(),
             )),
         onChanged: (value) {
           onChanged(value);
