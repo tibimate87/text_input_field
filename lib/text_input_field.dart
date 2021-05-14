@@ -39,7 +39,6 @@ class TextFieldInput extends StatelessWidget {
       this.padding,
       this.maxLength});
 
-  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: padding,
@@ -77,12 +76,17 @@ class TextFieldInput extends StatelessWidget {
               borderRadius: new BorderRadius.circular(25.0),
               borderSide: new BorderSide(),
             ),
-            prefixIcon: IconButton(
-              icon: Icon(prefixIcon),
-              onPressed: () => prefixIconPressed(),
+            prefixIcon: Icon(
+              prefixIcon,
             ),
-            suffixIcon: IconButton(
-              icon: Icon(suffixIcon),
+            // prefix: IconButton(
+            //   icon: Icon(
+            //     prefixIcon,
+            //   ),
+            //   onPressed: () => prefixIconPressed(),
+            // ),
+            suffix: IconButton(
+              icon: Icon(suffixIcon, color: textColor),
               onPressed: () => suffixIconPressed(),
             )),
         onChanged: (value) {
