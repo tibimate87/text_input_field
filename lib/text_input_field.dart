@@ -19,6 +19,7 @@ class TextFieldInput extends StatelessWidget {
   final String fontFamily;
   final EdgeInsetsGeometry padding;
   final int maxLength;
+  final FocusNode focusNode;
 
   bool isPassword;
   TextFieldInput(
@@ -37,12 +38,14 @@ class TextFieldInput extends StatelessWidget {
       this.suffixIcon,
       this.suffixIconPressed,
       this.padding,
-      this.maxLength});
+      this.maxLength,
+      this.focusNode});
 
   Widget build(BuildContext context) {
     return Padding(
       padding: padding,
       child: TextFormField(
+        focusNode: focusNode,
         maxLength: maxLength,
         obscureText: isPassword,
         controller: controller,
