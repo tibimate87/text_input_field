@@ -16,6 +16,8 @@ class TextFieldInput extends StatelessWidget {
   final Function prefixIconPressed;
   final Color textColor;
   final Color borderColor;
+  final Color prefixIconColor;
+  final Color sufixIconColor;
   final String fontFamily;
   final EdgeInsetsGeometry padding;
   final int maxLength;
@@ -39,7 +41,9 @@ class TextFieldInput extends StatelessWidget {
       this.suffixIconPressed,
       this.padding,
       this.maxLength,
-      this.focusNode});
+      this.focusNode,
+      this.prefixIconColor,
+      this.sufixIconColor});
 
   Widget build(BuildContext context) {
     return Padding(
@@ -81,6 +85,7 @@ class TextFieldInput extends StatelessWidget {
             ),
             prefixIcon: Icon(
               prefixIcon,
+              color: prefixIconColor,
             ),
             // prefix: IconButton(
             //   icon: Icon(
@@ -89,7 +94,7 @@ class TextFieldInput extends StatelessWidget {
             //   onPressed: () => prefixIconPressed(),
             // ),
             suffix: IconButton(
-              icon: Icon(suffixIcon, color: textColor),
+              icon: Icon(suffixIcon, color: sufixIconColor),
               onPressed: () => suffixIconPressed(),
             )),
         onChanged: (value) {
