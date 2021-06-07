@@ -16,6 +16,7 @@ class TextFieldInput extends StatelessWidget {
   final Function prefixIconPressed;
   final Color textColor;
   final Color borderColor;
+  final Color labelColor;
   final Color prefixIconColor;
   final Color sufixIconColor;
   final String fontFamily;
@@ -33,6 +34,7 @@ class TextFieldInput extends StatelessWidget {
       this.isWarningVisible = false,
       this.textColor = Colors.black,
       this.borderColor = Colors.black,
+      this.labelColor = Colors.black,
       this.fontFamily,
       @required this.controller,
       this.prefixIcon,
@@ -76,7 +78,7 @@ class TextFieldInput extends StatelessWidget {
           ),
           labelText: labelText,
           labelStyle: TextStyle(
-            color: textColor,
+            color: labelColor,
             fontFamily: fontFamily,
           ),
           border: new OutlineInputBorder(
