@@ -62,45 +62,46 @@ class TextFieldInput extends StatelessWidget {
           fontFamily: fontFamily,
         ),
         decoration: InputDecoration(
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(25.0),
-              borderSide: BorderSide(
-                color: borderColor,
-              ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(25.0),
+            borderSide: BorderSide(
+              color: borderColor,
             ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(25.0),
-              borderSide: BorderSide(
-                color: borderColor,
-              ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(25.0),
+            borderSide: BorderSide(
+              color: borderColor,
             ),
-            labelText: labelText,
-            labelStyle: TextStyle(
-              color: textColor,
-              fontFamily: fontFamily,
-            ),
-            border: new OutlineInputBorder(
-              borderRadius: new BorderRadius.circular(25.0),
-              borderSide: new BorderSide(),
-            ),
-            prefixIcon: Icon(
-              prefixIcon,
-              color: prefixIconColor,
-            ),
-            // prefix: IconButton(
-            //   icon: Icon(
-            //     prefixIcon,
-            //   ),
-            //   onPressed: () => prefixIconPressed(),
-            // ),
-            suffixIcon: IconButton(
-              icon: Icon(suffixIcon, color: sufixIconColor),
-              onPressed: () => suffixIconPressed(),
-            ),
-            suffix: IconButton(
-              icon: Icon(suffixIcon, color: sufixIconColor),
-              onPressed: () => suffixIconPressed(),
-            )),
+          ),
+          labelText: labelText,
+          labelStyle: TextStyle(
+            color: textColor,
+            fontFamily: fontFamily,
+          ),
+          border: new OutlineInputBorder(
+            borderRadius: new BorderRadius.circular(25.0),
+            borderSide: new BorderSide(),
+          ),
+          prefixIcon: Icon(
+            prefixIcon,
+            color: prefixIconColor,
+          ),
+          // prefix: IconButton(
+          //   icon: Icon(
+          //     prefixIcon,
+          //   ),
+          //   onPressed: () => prefixIconPressed(),
+          // ),
+          suffixIcon: IconButton(
+            icon: Icon(suffixIcon, color: sufixIconColor),
+            onPressed: () => suffixIconPressed(),
+          ),
+          // suffix: IconButton(
+          //   icon: Icon(suffixIcon, color: sufixIconColor),
+          //   onPressed: () => suffixIconPressed(),
+          // ),
+        ),
         onChanged: (value) {
           onChanged(value);
         },
