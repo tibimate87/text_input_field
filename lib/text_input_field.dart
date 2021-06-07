@@ -93,6 +93,10 @@ class TextFieldInput extends StatelessWidget {
             //   ),
             //   onPressed: () => prefixIconPressed(),
             // ),
+            suffixIcon: IconButton(
+              icon: Icon(suffixIcon, color: sufixIconColor),
+              onPressed: () => suffixIconPressed(),
+            ),
             suffix: IconButton(
               icon: Icon(suffixIcon, color: sufixIconColor),
               onPressed: () => suffixIconPressed(),
