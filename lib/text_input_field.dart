@@ -22,36 +22,35 @@ class TextFieldInput extends StatelessWidget {
   final String fontFamily;
   final EdgeInsetsGeometry padding;
   final int maxLength;
-  final FocusNode focusNode;
 
   bool isPassword;
-  TextFieldInput(
-      {@required this.labelText,
-      this.maxLines = 1,
-      this.isPassword = false,
-      this.onChanged,
-      this.onTap,
-      this.isWarningVisible = false,
-      this.textColor = Colors.black,
-      this.borderColor = Colors.black,
-      this.labelColor = Colors.black,
-      this.fontFamily,
-      @required this.controller,
-      this.prefixIcon,
-      this.prefixIconPressed,
-      this.suffixIcon,
-      this.suffixIconPressed,
-      this.padding,
-      this.maxLength,
-      this.focusNode,
-      this.prefixIconColor,
-      this.sufixIconColor});
+  TextFieldInput({
+    required this.labelText,
+    this.maxLines = 1,
+    this.isPassword = false,
+    required this.onChanged,
+    required this.onTap,
+    this.isWarningVisible = false,
+    this.textColor = Colors.black,
+    this.borderColor = Colors.black,
+    this.labelColor = Colors.black,
+    required this.fontFamily,
+    required this.controller,
+    required this.prefixIcon,
+    required this.prefixIconPressed,
+    required this.suffixIcon,
+    required this.suffixIconPressed,
+    this.padding = const EdgeInsets.fromLTRB(0, 5, 0, 5),
+    this.maxLength = 20,
+    this.prefixIconColor = Colors.black,
+    this.sufixIconColor = Colors.black,
+  });
 
   Widget build(BuildContext context) {
     return Padding(
       padding: padding,
       child: TextFormField(
-        focusNode: focusNode,
+        focusNode: FocusNode(),
         maxLength: maxLength,
         obscureText: isPassword,
         controller: controller,
