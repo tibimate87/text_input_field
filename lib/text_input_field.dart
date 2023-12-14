@@ -63,6 +63,9 @@ class TextFieldInput extends StatelessWidget {
           fontFamily: fontFamily,
         ),
         decoration: InputDecoration(
+          counter: SizedBox(
+            height: 0,
+          ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(25.0),
             borderSide: BorderSide(
